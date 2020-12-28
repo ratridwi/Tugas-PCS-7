@@ -37,6 +37,9 @@ class NewsFragment : Fragment() {
     private fun init() {
         binding.recyclerView.adapter = NewsAdapter(parent)
         viewModel.listNews()
+        binding.swipeRefresh.setOnRefreshListener {
+            viewModel.listNews()
+        }
 //        binding.swipeRefresh.setOnRefreshListener {
 //            viewModel.listSurat()
 //        }
@@ -44,6 +47,7 @@ class NewsFragment : Fragment() {
 
     private fun observe() {
         viewModel.loading.observe(viewLifecycleOwner){
+            binding.swipeRefresh.isRefreshing = it
 //            binding.swipeRefresh.isRefreshing = it
         }
 

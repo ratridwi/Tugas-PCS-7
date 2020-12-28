@@ -15,12 +15,24 @@
         android:layout_height="match_parent"
         tools:context=".ui.news.NewsFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:data="@{viewModel.listResp}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:id="@+id/recyclerView"/>
+            android:id="@+id/swipeRefresh">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:data="@{viewModel.listResp}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:padding="8dp"
+                android:clipToPadding="false"
+                android:background="#eee"
+                android:id="@+id/recyclerView"/>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
 
     </FrameLayout>
 </layout>
